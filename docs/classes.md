@@ -52,23 +52,32 @@ TypeScript 에서는 `extends` 키워드를 통해 _단일_ 상속을 지원합�
 
 ```ts
 class Point3D extends Point {
+
     z: number;
+
+    /**
+     * 만일 부모 클래스 즉 `Point`가 생성자(`constructor`)를 가진다면,
+     i* 자식 클래스인 `Point3D`에서는 `super`를 통해 반드시 부모 클래스의 생성자를 호출하도록 TypeScript가 컴파일 에러를 통해 강제 합니다.
+     */
     constructor(x: number, y: number, z: number) {
         super(x, y);
+        /**
+         * `super`를 통해 부모 클래스의 생성자를 호출하고 나면, 나머지 초기화 과정에 대한 코드를 작성할 수 있습니다.
+         * `Point3D`의 경우 `z` 값을 초기화 합니다.
+         */
         this.z = z;
     }
+    
+    /**
+     * 여기서 주목할 것은, 부모 클래스인 `Point`의 함수은 `add`를 override 했다는 것 입니다.
+     */
     add(point: Point3D) {
+        // 그리고 부모 클래스의 함수를 `super.` 키워드를 통해 접근할 수 있습니다.
         var point2D = super.add(point);
         return new Point3D(point2D.x, point2D.y, this.z + point.z);
     }
 }
 ```
-
-만일 부모 클래스 즉 `Point`가 생성자(`constructor`)를 가진다면, 자식 클래스인 `Point3D`에서는 `super`를 통해 반드시 부모 클래스의 생성자를 호출하도록 TypeScript가 컴파일 에러를 통해 강제 합니다.
-`super`를 통해 부모 클래스의 생성자를 호출하고 나면, 나머지 초기화 과정에 대한 코드를 작성할 수 있습니다.
-`Point3D`의 경우 `z` 값을 초기화 합니다.
-
-여기서 주목할 것은, 부모 클래스인 `Point`의 함수은 `add`를 override 했다는 것 입니다. 그리고 부모 클래스의 함수를 `super.` 키워드를 통해 접근할 수 있습니다.
 
 ### Statics (정적 변수)
 
@@ -105,7 +114,7 @@ TypeScript 는 객체지향 언어에서 사용하는 동일한 접근 제어자
 다만, 컴파일 과정을 통해서 접근 제어에 위반한 코드에 대해 컴파일 에러를 통해 접근 제어를 하는 것을 의미 합니다.
 
 [역주]
-실제로 `private`의 경우 IFFE 안에 변수를 정의하는 식으로 구현할 수 있겠지만, `protected`의 경우, JavaScript 언어 스펙 상 불가능한 내용이겠죠.
+실제로 `private`의 경우 IIFE 안에 변수를 정의하는 식으로 구현할 수 있겠지만, `protected`의 경우, JavaScript 언어 스펙 상 불가능한 내용이겠죠.
 
 ```ts
 class FooBase {
