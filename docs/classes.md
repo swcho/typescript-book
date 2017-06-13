@@ -2,9 +2,7 @@
 
 The reason why it's important to have classes in JavaScript as a first class item is that:
 
-왜 자바스크립트에서 클래스가 중요할까요?
-
-  
+JavaScript에 class 가 필요한 이유는 다음과 같습니다.  
 1. [Classes offer a useful structural abstraction](./tips/classesAreUseful.md)  
 1. Provides a consistent way for developers to use classes instead of every framework \(emberjs,reactjs etc\) coming up with their own version.  
 1. Object Oriented Developers already understand classes.
