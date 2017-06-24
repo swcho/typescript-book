@@ -41,6 +41,7 @@ All the amazing [contributors](https://github.com/basarat/typescript-book/graphs
 
 ## Share
 Share URL: http://basarat.gitbooks.io/typescript/
+
 한국어
  * https://swcho.gitbooks.io/typescript-deep-dive/content/
  * https://github.com/swcho/typescript-book
