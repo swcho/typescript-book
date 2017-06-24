@@ -57,7 +57,7 @@ setTimeout(function() { console.log(person.age); },2000);
 // 이제는 2 값으로 출력 합니다.
 ```
 위와 같이 동작하는 이유는 arrow function 에서 사용한 `this`는 실제로 arrow function 밖에서 참조한 `this`이기 때문 입니다.
-다음은 위의 코드를 [TypeScript로 컴파일한 결과](https://www.typescriptlang.org/play/index.html#src=function%20Person(age)%20%7B%0D%0A%20%20%20%20this.age%20%3D%20age%3B%0D%0A%20%20%20%20this.growOld%20%3D%20()%20%3D%3E%20%7B%0D%0A%20%20%20%20%20%20%20%20this.age%2B%2B%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0Avar%20person%20%3D%20new%20Person(1)%3B%0D%0AsetTimeout(person.growOld%2C1000)%3B%0D%0A%0D%0AsetTimeout(function()%20%7B%20console.log(person.age)%3B%20%7D%2C2000)%3B) 입니다.
+다음은 위의 코드를 [TypeScript로 컴파일한 결과](https://goo.gl/gtrWUR) 입니다.
 ```ts
 function Person(age) {
     var _this = this;
