@@ -1,4 +1,4 @@
-TypeScript Deep Dive
+TypeScript Deep Dive (한국어)
 =======
 
 I've been looking at the issues that turn up commonly when people start using TypeScript. This is based on the lessons from [StackOverflow](http://stackoverflow.com/tags/typescript/topusers) / [DefinitelyTyped](https://github.com/DefinitelyTyped/) and general engagement with the [TypeScript community](https://github.com/TypeStrong/). You can [follow for updates](https://twitter.com/basarat) and [don't forget to ★ on Github](https://github.com/basarat/typescript-book) 🌹
@@ -42,3 +42,8 @@ All the amazing [contributors](https://github.com/basarat/typescript-book/graphs
 
 ## Share
 Share URL: http://basarat.gitbooks.io/typescript/
+
+한국어
+ * https://swcho.gitbooks.io/typescript-deep-dive/content/
+ * https://github.com/swcho/typescript-book
+ * https://www.gitbook.com/book/swcho/typescript-deep-dive/details 

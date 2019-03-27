@@ -1,6 +1,6 @@
 #### `super`
 
-Note that if you call `super` on a child class it is redirected to the `prototype` as shown below:
+자식(`Child`) 클래스에서 `super`를 통해서 부모(`Base`) 클래스의 함수를 호출할 수 있습니다.
 
 ```ts
 class Base {
@@ -11,7 +11,8 @@ class Child extends Base {
     log() { super.log() };
 }
 ```
-generates:
+
+이는 다음과 같이 부모(`Base`) 클래스 객체의 `prototype`을 통해 호출하는 코드를 생성합니다.
 
 ```js
 var Base = (function () {
@@ -30,9 +31,11 @@ var Child = (function (_super) {
 })(Base);
 
 ```
-Notice `_super.prototype.log.call(this)`.
 
-This means that you cannot use `super` on member properties. Instead you should just use `this`.
+클래스 맴버 변수에는 `super` 대신 `this`를 사용해야 합니다.
+
+물론 자식(`Child`) 클래스에서 `this` 키워드를 통해서 부모(`Base`) 클래스의 `log()` 함수를 사용할 수 있습니다.
+이 경우, `Child` 클래스에서는 호출하고자 하는 부모(`Base`) 클래스의 `log()` 함수와는 다른 이름을 사용(예제 에서는 `logWorld()`)해야 합니다. 그러면 JavaScript의 prototype chain을 통해 자연스럽게 `Base` 클래스의 `log()` 함수를 호출하게 되겠죠.
 
 ```ts
 class Base {
@@ -44,9 +47,7 @@ class Child extends Base {
 }
 ```
 
-Notice since there is only one `this` shared between the `Base` and the `Child` class you need to use *different* names (here `log` and `logWorld`).
-
-Also Note that TypeScript will warn you if you try to misuse `super`:
+TypeScript 컴파일러는 `super`를 잘못 하용하였을 경우, 다음과 같이 경고를 해 줍니다.
 
 ```ts
 module quz {
