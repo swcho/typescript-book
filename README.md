@@ -29,6 +29,7 @@ I've been looking at the issues that turn up commonly when people start using Ty
 
 ## Get Started
 If you are here to read the book online [get started](http://basarat.gitbooks.io/typescript/content/docs/getting-started.html).
+[한국어](https://swcho.gitbooks.io/typescript-deep-dive/content/)
 
 ## Other Options
 You can also download one of the following:

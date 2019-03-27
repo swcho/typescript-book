@@ -1,5 +1,5 @@
-#### What's up with the IIFE
-The js generated for the class could have been:
+#### What's up with the IIFE(왜 IIFE를 사용하는가)
+일반적으로 js를 사용하여 정의하는 class는 다음과 같다.
 ```ts
 function Point(x, y) {
     this.x = x;
@@ -11,6 +11,7 @@ Point.prototype.add = function (point) {
 ```
 
 The reason its wrapped in an Immediately-Invoked Function Expression (IIFE) i.e.
+TypeScript는 class 컴파일 과정에서 다음과 같이 IIFE에 감싸인 class 코드를 생성한다.
 
 ```ts
 (function () {
@@ -21,7 +22,7 @@ The reason its wrapped in an Immediately-Invoked Function Expression (IIFE) i.e.
 })();
 ```
 
-has to do with inheritance. It allows TypeScript to capture the base class as a variable `_super` e.g.
+이는 다음과 같이 `_super` 라는 변수명을 통해서 부모 클래스를 정의한 객체에 접근하기 위해서 이다.
 
 ```ts
 var Point3D = (function (_super) {
